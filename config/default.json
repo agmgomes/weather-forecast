@@ -1,0 +1,5 @@
+{
+  "apiURL": "http://api.openweathermap.org/data/2.5/weather",
+  "apiAPPID": "c483aba283dcbf65babfaa5638939af7",
+  "apiUnits": "metric"
+}

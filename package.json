@@ -1,0 +1,36 @@
+{
+  "name": "weather_forecast",
+  "version": "1.0.0",
+  "description": "Wheater forecast REST API",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agmgomes/wheater-forecast-api.git"
+  },
+  "keywords": [
+    "node.js",
+    "express",
+    "rest",
+    "api",
+    "weather",
+    "forecast"
+  ],
+  "author": "Andre Gomes",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/agmgomes/wheater-forecast-api/issues"
+  },
+  "homepage": "https://github.com/agmgomes/wheater-forecast-api#readme",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "config": "^3.2.4",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  }
+}
