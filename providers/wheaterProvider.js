@@ -16,7 +16,7 @@ module.exports = {
         }
       });
 
-      let { main, sys } = result;
+      var { name, id, main, sys } = result;
 
       /**
        * sys.sunrise & sys.sunset are UNIX timestamps in seconds
@@ -26,6 +26,9 @@ module.exports = {
       let sunset = new Date(sys.sunset * 1000);
 
       let wheaterInfo = {
+        name,
+        id,
+        country: sys.country,
         temp: main.temp,
         sunrise: sunrise.getHours() + ':' + sunrise.getMinutes(),
         sunset: sunset.getHours() + ':' + sunset.getMinutes()
