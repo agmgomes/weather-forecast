@@ -7,6 +7,6 @@ const wheaterController = require('../../controllers/wheaterController');
  * desc
  * access Public
  */
-router.get('/:q', wheaterController.getCity);
+router.get('/:name', wheaterController.getCity);
 
 module.exports = router;
