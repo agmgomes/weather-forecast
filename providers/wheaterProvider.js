@@ -30,8 +30,16 @@ module.exports = {
         id,
         country: sys.country,
         temp: main.temp,
-        sunrise: sunrise.getHours() + ':' + sunrise.getMinutes(),
-        sunset: sunset.getHours() + ':' + sunset.getMinutes()
+        sunrise:
+          sunrise.getHours() +
+          ':' +
+          (sunrise.getMinutes() < 10 ? '0' : '') +
+          sunrise.getMinutes(),
+        sunset:
+          sunset.getHours() +
+          ':' +
+          (sunset.getMinutes() < 10 ? '0' : '') +
+          sunset.getMinutes()
       };
       return wheaterInfo;
     } catch (error) {
