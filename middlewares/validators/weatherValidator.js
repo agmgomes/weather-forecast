@@ -6,5 +6,12 @@ module.exports = {
 
     let validation = schema.validate(name);
     return validation;
+  },
+
+  citiesValidation(cities) {
+    const schema = Joi.array().items(Joi.string().pattern(/^[a-zA-Z]+$/));
+
+    let validation = schema.validate(cities);
+    return validation;
   }
 };

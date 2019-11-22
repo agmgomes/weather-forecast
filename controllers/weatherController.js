@@ -28,12 +28,21 @@ module.exports = {
     }
   },
 
-  //get severalCities
   async getSeveralCities(req, res) {
     let { query } = req.params;
     const splited = query.split(',');
     console.log(splited);
     console.log(splited.length);
+
+    let { error } = weatherValidator.citiesValidation(splited);
+    if (error) {
+      return res.status(400).json({
+        error: {
+          status: 400,
+          msg: 'Please enter only letters'
+        }
+      });
+    }
 
     const promises = splited.map(async city => {
       let apiCall = await weatherProvider.getByCityName(city);
