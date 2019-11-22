@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { FETCH_WEATHER, WEATHER_LOADING } from './types';
+import { returnErrors } from './errorActions';
 
 export const fetchWeather = city => dispatch => {
   axios
@@ -10,7 +11,9 @@ export const fetchWeather = city => dispatch => {
         payload: res.data
       })
     )
-    .catch(err => console.log(err));
+    .catch(err =>
+      dispatch(returnErrors(err.response.data, err.response.status))
+    );
 };
 
 export const setWeatherLoading = () => {
