@@ -1,24 +1,23 @@
-import React from 'react';
-import './App.css';
+import React, { Component } from 'react';
 
-function App() {
-  return (
-    <div className='App'>
-      <header className='App-header'>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className='App-link'
-          href='https://reactjs.org'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import { Provider } from 'react-redux';
+import store from './store/store';
+
+import SearchForm from './containers/SearchForm';
+import BarGraph from './containers/BarGraph';
+
+class App extends Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <div className='App'>
+          <h1>Hello World</h1>
+          <SearchForm />
+          <BarGraph />
+        </div>
+      </Provider>
+    );
+  }
 }
 
 export default App;
