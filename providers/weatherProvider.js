@@ -25,24 +25,22 @@ module.exports = {
       let sunrise = new Date(sys.sunrise * 1000);
       let sunset = new Date(sys.sunset * 1000);
 
-      let weatherInfo = [
-        {
-          name,
-          id,
-          country: sys.country,
-          temp: main.temp,
-          sunrise:
-            sunrise.getHours() +
-            ':' +
-            (sunrise.getMinutes() < 10 ? '0' : '') +
-            sunrise.getMinutes(),
-          sunset:
-            sunset.getHours() +
-            ':' +
-            (sunset.getMinutes() < 10 ? '0' : '') +
-            sunset.getMinutes()
-        }
-      ];
+      let weatherInfo = {
+        name,
+        id,
+        country: sys.country,
+        temp: main.temp,
+        sunrise:
+          sunrise.getHours() +
+          ':' +
+          (sunrise.getMinutes() < 10 ? '0' : '') +
+          sunrise.getMinutes(),
+        sunset:
+          sunset.getHours() +
+          ':' +
+          (sunset.getMinutes() < 10 ? '0' : '') +
+          sunset.getMinutes()
+      };
       return weatherInfo;
     } catch (error) {
       throw error;

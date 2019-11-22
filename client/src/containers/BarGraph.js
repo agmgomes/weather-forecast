@@ -10,10 +10,6 @@ class BarGraph extends Component {
   render() {
     const { weatherInfo } = this.props;
 
-    // const content =
-    //   weatherInfo.length > 0
-    //     ? weatherInfo.map((weatherInfo, index) => <h1>{weatherInfo.name}</h1>)
-    //     : null;
     const labels = [];
     const dataPoints = [];
     const content =

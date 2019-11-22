@@ -26,5 +26,21 @@ module.exports = {
         }
       });
     }
+  },
+
+  //get severalCities
+  async getSeveralCities(req, res) {
+    let { query } = req.params;
+    const splited = query.split(',');
+    console.log(splited);
+    console.log(splited.length);
+
+    const promises = splited.map(async city => {
+      let apiCall = await weatherProvider.getByCityName(city);
+      return apiCall;
+    });
+
+    const results = await Promise.all(promises);
+    res.json(results);
   }
 };

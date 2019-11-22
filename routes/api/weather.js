@@ -9,4 +9,6 @@ const weatherController = require('../../controllers/weatherController');
  */
 router.get('/:name', weatherController.getCity);
 
+router.get('/cities/:query', weatherController.getSeveralCities);
+
 module.exports = router;
