@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const wheaterController = require('../../controllers/wheaterController');
+const weatherController = require('../../controllers/wheaterController');
 
 /**
  * route GET /wheater/:name
  * desc
  * access Public
  */
-router.get('/:name', wheaterController.getCity);
+router.get('/:name', weatherController.getCity);
 
 module.exports = router;

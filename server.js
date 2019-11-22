@@ -18,8 +18,8 @@ app.use(morgan('combined', { stream: accessLogStream }));
 
 const port = process.env.PORT || 5000;
 
-app.use('/wheater', require('./routes/api/wheater'));
+app.use('/weather', require('./routes/api/weather'));
 
 app.listen(port, () => {
-  console.log(`Wheater Forecast server started on port ${port}`);
+  console.log(`Weather Forecast server started on port ${port}`);
 });
