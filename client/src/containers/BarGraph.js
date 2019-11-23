@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 
+import { clearErrors } from '../actions/errorActions';
+
 import { Bar } from 'react-chartjs-2';
+import BootstrapTable from 'react-bootstrap-table-next';
 
 class BarGraph extends Component {
   state = {};
@@ -12,16 +15,24 @@ class BarGraph extends Component {
 
     const labels = [];
     const dataPoints = [];
-    const content =
+    const dataTable = [];
+    let content =
       weatherInfo.length > 0
         ? weatherInfo.map((weatherInfo, index) => {
             labels.push(weatherInfo.name);
             dataPoints.push(weatherInfo.temp);
+            let data = {
+              name: weatherInfo.name,
+              temp: weatherInfo.temp,
+              sunrise: weatherInfo.sunrise,
+              sunset: weatherInfo.sunset
+            };
+            dataTable.push(data);
           })
         : null;
 
     const data = {
-      labels: labels,
+      labels,
       datasets: [
         {
           label: 'Temp',
@@ -34,6 +45,30 @@ class BarGraph extends Component {
         }
       ]
     };
+
+    const columns = [
+      {
+        dataField: 'name',
+        text: 'City',
+        sort: true
+      },
+      {
+        dataField: 'temp',
+        text: 'Temp',
+        sort: true
+      },
+      {
+        dataField: 'sunrise',
+        text: 'Sunrise',
+        sort: true
+      },
+      {
+        dataField: 'sunset',
+        text: 'Sunset',
+        sort: true
+      }
+    ];
+
     return (
       <div>
         <Bar
@@ -45,6 +80,7 @@ class BarGraph extends Component {
             maintainAspectRatio: false
           }}
         />
+        <BootstrapTable keyField='id' data={dataTable} columns={columns} />
       </div>
     );
   }
@@ -54,4 +90,4 @@ const mapStateToProps = state => ({
   weatherInfo: state.weather.weather
 });
 
-export default connect(mapStateToProps, null)(BarGraph);
+export default connect(mapStateToProps, { clearErrors })(BarGraph);

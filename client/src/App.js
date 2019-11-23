@@ -6,6 +6,9 @@ import store from './store/store';
 import SearchForm from './containers/SearchForm';
 import BarGraph from './containers/BarGraph';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
+
 class App extends Component {
   render() {
     return (
