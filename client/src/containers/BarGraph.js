@@ -2,23 +2,23 @@ import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 
-import { clearErrors } from '../actions/errorActions';
-
 import { Bar } from 'react-chartjs-2';
 import BootstrapTable from 'react-bootstrap-table-next';
+import ErrorAlert from './ErrorAlert';
 
 class BarGraph extends Component {
   state = {};
 
   render() {
     const { weatherInfo } = this.props;
+    const { error } = this.props;
 
     const labels = [];
     const dataPoints = [];
     const dataTable = [];
     let content =
       weatherInfo.length > 0
-        ? weatherInfo.map((weatherInfo, index) => {
+        ? weatherInfo.map(weatherInfo => {
             labels.push(weatherInfo.name);
             dataPoints.push(weatherInfo.temp);
             let data = {
@@ -70,24 +70,30 @@ class BarGraph extends Component {
     ];
 
     return (
-      <div>
+      <div className='information'>
+        {error.msg.msg ? <ErrorAlert message={error.msg.msg} /> : null}
         <Bar
           data={data}
-          width={10}
-          height={250}
+          width={100}
+          height={50}
           options={{
-            responsive: true,
             maintainAspectRatio: false
           }}
         />
-        <BootstrapTable keyField='id' data={dataTable} columns={columns} />
+        <BootstrapTable
+          bootstrap4='true'
+          keyField='id'
+          data={dataTable}
+          columns={columns}
+        />
       </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  weatherInfo: state.weather.weather
+  weatherInfo: state.weather.weather,
+  error: state.error
 });
 
-export default connect(mapStateToProps, { clearErrors })(BarGraph);
+export default connect(mapStateToProps, null)(BarGraph);

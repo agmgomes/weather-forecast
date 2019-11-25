@@ -6,6 +6,7 @@ import store from './store/store';
 import SearchForm from './containers/SearchForm';
 import BarGraph from './containers/BarGraph';
 
+import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 
@@ -14,7 +15,7 @@ class App extends Component {
     return (
       <Provider store={store}>
         <div className='App'>
-          <h1>Hello World</h1>
+          <h1>Weather Forecast</h1>
           <SearchForm />
           <BarGraph />
         </div>

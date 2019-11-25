@@ -19,11 +19,13 @@ class SearchForm extends Component {
 
   render() {
     return (
-      <div>
+      <div className='search-form'>
         <Container>
           <Form onSubmit={this.onSubmit}>
             <FormGroup>
-              <Label for='city'>City</Label>
+              <Label for='city'>
+                Search at least 3 cities (max: 10 cities){' '}
+              </Label>
               <br />
               <Input
                 type='text'
@@ -32,9 +34,7 @@ class SearchForm extends Component {
                 placeholder='City name, e.g., Lisbon, London...'
                 onChange={this.onChange}
               />
-              <Button color='dark' block>
-                Search
-              </Button>
+              <Button color='dark'>Search</Button>
             </FormGroup>
           </Form>
         </Container>
