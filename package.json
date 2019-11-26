@@ -8,11 +8,12 @@
     "start": "node server.js",
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/agmgomes/wheater-forecast-api.git"
+    "url": "git+https://github.com/agmgomes/wheater-forecast.git"
   },
   "keywords": [
     "node.js",
@@ -25,9 +26,9 @@
   "author": "Andre Gomes",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/agmgomes/wheater-forecast-api/issues"
+    "url": "https://github.com/agmgomes/wheater-forecast/issues"
   },
-  "homepage": "https://github.com/agmgomes/wheater-forecast-api#readme",
+  "homepage": "https://github.com/agmgomes/wheater-forecast#readme",
   "dependencies": {
     "@hapi/joi": "^16.1.7",
     "axios": "^0.19.0",
