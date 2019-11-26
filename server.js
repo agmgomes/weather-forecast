@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const logger = require('./utils/logger');
 const httpLogger = require('./middlewares/httpLogger');
 const { handleError } = require('./middlewares/errors/error');
