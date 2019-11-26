@@ -3,6 +3,7 @@ import { Form, FormGroup, Label, Input, Button, Container } from 'reactstrap';
 
 import { connect } from 'react-redux';
 import { fetchWeather } from '../actions/weatherActions';
+import { clearErrors } from '../actions/errorActions';
 
 class SearchForm extends Component {
   state = {};
@@ -14,6 +15,7 @@ class SearchForm extends Component {
   onSubmit = e => {
     e.preventDefault();
 
+    this.props.clearErrors();
     this.props.fetchWeather(this.state.city);
   };
 
@@ -43,4 +45,4 @@ class SearchForm extends Component {
   }
 }
 
-export default connect(null, { fetchWeather })(SearchForm);
+export default connect(null, { fetchWeather, clearErrors })(SearchForm);

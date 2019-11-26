@@ -21,7 +21,7 @@ class ErrorAlert extends Component {
         color='danger'
         isOpen={this.state.visible}
         toggle={this.onDismiss}
-        style={{ width: 200 }}
+        style={{ width: 500 }}
       >
         {this.props.message}
       </Alert>

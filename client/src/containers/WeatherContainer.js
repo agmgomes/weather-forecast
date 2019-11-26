@@ -4,38 +4,36 @@ import { connect } from 'react-redux';
 
 import { Bar } from 'react-chartjs-2';
 import BootstrapTable from 'react-bootstrap-table-next';
-import ErrorAlert from './ErrorAlert';
 
-class BarGraph extends Component {
+class WeatherContainer extends Component {
   state = {};
 
   render() {
-    const { weatherInfo } = this.props;
-    const { error } = this.props;
+    const { weatherInfo, fetched } = this.props;
 
     const labels = [];
     const dataPoints = [];
     const dataTable = [];
-    let content =
-      weatherInfo.length > 0
-        ? weatherInfo.map(weatherInfo => {
-            labels.push(weatherInfo.name);
-            dataPoints.push(weatherInfo.temp);
-            let data = {
-              name: weatherInfo.name,
-              temp: weatherInfo.temp,
-              sunrise: weatherInfo.sunrise,
-              sunset: weatherInfo.sunset
-            };
-            dataTable.push(data);
-          })
-        : null;
 
-    const data = {
+    if (fetched) {
+      weatherInfo.map(weatherInfo => {
+        labels.push(weatherInfo.name);
+        dataPoints.push(weatherInfo.temp);
+        let data = {
+          name: weatherInfo.name,
+          temp: weatherInfo.temp,
+          sunrise: weatherInfo.sunrise,
+          sunset: weatherInfo.sunset
+        };
+        dataTable.push(data);
+      });
+    }
+
+    const dataBar = {
       labels,
       datasets: [
         {
-          label: 'Temp',
+          label: 'Temperature (ºC)',
           backgroundColor: 'rgba(255,99,132,0.2)',
           borderColor: 'rgba(255,99,132,1)',
           borderWidth: 1,
@@ -54,7 +52,7 @@ class BarGraph extends Component {
       },
       {
         dataField: 'temp',
-        text: 'Temp',
+        text: 'Temperature (ºC)',
         sort: true
       },
       {
@@ -71,21 +69,24 @@ class BarGraph extends Component {
 
     return (
       <div className='information'>
-        {error.msg.msg ? <ErrorAlert message={error.msg.msg} /> : null}
-        <Bar
-          data={data}
-          width={100}
-          height={50}
-          options={{
-            maintainAspectRatio: false
-          }}
-        />
-        <BootstrapTable
-          bootstrap4='true'
-          keyField='id'
-          data={dataTable}
-          columns={columns}
-        />
+        {fetched ? (
+          <Bar
+            data={dataBar}
+            width={100}
+            height={50}
+            options={{
+              maintainAspectRatio: false
+            }}
+          />
+        ) : null}
+        {fetched ? (
+          <BootstrapTable
+            bootstrap4={true}
+            keyField='id'
+            data={dataTable}
+            columns={columns}
+          />
+        ) : null}
       </div>
     );
   }
@@ -93,7 +94,7 @@ class BarGraph extends Component {
 
 const mapStateToProps = state => ({
   weatherInfo: state.weather.weather,
-  error: state.error
+  fetched: state.weather.fetched
 });
 
-export default connect(mapStateToProps, null)(BarGraph);
+export default connect(mapStateToProps, null)(WeatherContainer);

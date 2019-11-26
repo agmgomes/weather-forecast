@@ -3,8 +3,7 @@ import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import store from './store/store';
 
-import SearchForm from './containers/SearchForm';
-import BarGraph from './containers/BarGraph';
+import Landing from './containers/Landing';
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -16,8 +15,7 @@ class App extends Component {
       <Provider store={store}>
         <div className='App'>
           <h1>Weather Forecast</h1>
-          <SearchForm />
-          <BarGraph />
+          <Landing />
         </div>
       </Provider>
     );
