@@ -2,7 +2,7 @@
 
 A simple weather forecast application.
 
-Check here the live version on heroku.
+Check [here](https://weather-app-gomes.herokuapp.com/) the live version on heroku.
 
 ## Features
 
