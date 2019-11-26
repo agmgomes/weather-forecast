@@ -8,6 +8,11 @@ Check [here](https://weather-app-gomes.herokuapp.com/) the live version on herok
 
 Show the data (temperature, sunrise and sunset) on a bar chart and on a table.
 
+### Example
+
+![alt text](https://raw.githubusercontent.com/agmgomes/weather-forecast/master/img/weather1.png)
+![alt text](https://raw.githubusercontent.com/agmgomes/weather-forecast/master/img/weather2.png)
+
 ## Installation
 
 Make you sure you have installed [Node.js](https://nodejs.org/) at least version v12.13.0.
