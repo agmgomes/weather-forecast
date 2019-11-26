@@ -49,7 +49,8 @@ module.exports = {
       const result = await Promise.all(weatherPromises);
       res.json(result);
     } catch (error) {
-      return next(new ErrorHandler(404, 'City not found'));
+      let { q } = error.config.params;
+      return next(new ErrorHandler(404, `City ${q} not found`));
     }
   }
 };
