@@ -2,7 +2,7 @@ const axios = require('axios');
 const config = require('config');
 
 module.exports = {
-  async getByCityName(name, next) {
+  async getByCityName(name) {
     const url = config.get('apiURL');
     const units = config.get('apiUnits');
     const APPID = config.get('apiAPPID');

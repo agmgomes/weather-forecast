@@ -6,6 +6,7 @@ const { handleError } = require('./middlewares/errors/error');
 
 const app = express();
 
+// Writable stream for log purposes
 let accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), {
   flags: 'a'
 });
@@ -17,8 +18,10 @@ app.use(express.urlencoded({ extended: false }));
 // Logger Middleware
 app.use(morgan('combined', { stream: accessLogStream }));
 
+// Routes Middleware
 app.use('/weather', require('./routes/api/weather'));
 
+// Error handling Middleware
 app.use((err, req, res, next) => {
   handleError(err, res);
 });
