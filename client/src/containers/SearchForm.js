@@ -36,7 +36,9 @@ class SearchForm extends Component {
                 placeholder='City name, e.g., Lisbon, London...'
                 onChange={this.onChange}
               />
-              <Button color='dark'>Search</Button>
+              <Button color='dark' style={{ marginTop: '1rem' }}>
+                Search
+              </Button>
             </FormGroup>
           </Form>
         </Container>
