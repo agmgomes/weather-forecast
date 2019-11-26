@@ -30,6 +30,7 @@ Just run in your browser `http://localhost:3000` after run the scripts.
 
 - [Express.js](https://github.com/expressjs/express)
 - [Axios](https://github.com/axios/axios)
+- [@Hapi/Joi](https://github.com/hapijs/joi)
 - [Morgan](https://github.com/expressjs/morgan)
 - [Winston](https://github.com/winstonjs/winston)
 - [Concurrently](https://github.com/kimmobrunfeldt/concurrently)
